@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>EJS Tags Demo</title>
 </head>
 <body>
-    <h1><%= message %></h1>
+    <h1>Welcome, <%= username %>!</h1> <!-- Output unescaped value -->
+    
+    <h2>Unescaped HTML</h2>
+    <p><%- htmlContent %></p> <!-- Output escaped value (renders as HTML) -->
+
+    <h2>Conditional Rendering</h2>
+    <% if (isAdmin) { %>
+        <p>You have admin privileges.</p>
+    <% } else { %>
+        <p>You are a regular user.</p>
+    <% } %>
+
+    <h2>Looping through an array</h2>
+    <ul>
+        <% for(let i = 0; i < items.length; i++) { %>
+            <li><%= items[i] %></li> <!-- Output each item in the list -->
+        <% } %>
+    </ul>
+
+    <h2>Using include</h2>
+    <%- include('partials/footer') %> <!-- Include a partial template -->
 </body>
 </html>
